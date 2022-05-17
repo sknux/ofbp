@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+then
+	echo -e "Usage: $0 appname"
+	exit
+fi
+
+if [[ $(frida-ps -Uai | grep -i $1 | cut -d " " -f1) = - ]]; then
+  echo "Please, open the app and then press enter"
+  read
+fi
+
+echo -e "Getting the PID and executing frida:\r\n"
+frida-ps -Uai | grep -i $1 | cut -d " " -f1 > pidd
+for i in $(cat pidd);do frida -U -p $i --no-pause;done
+rm pidd
