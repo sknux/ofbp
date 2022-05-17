@@ -5,6 +5,8 @@ If you have the problem below, you can try to use a latest version of frida serv
 
 The purpose of this tool is to identify and open an application with frida by PID.
 
+*Frida is required*
+
 Installing:
 ```html
 git clone https://github.com/sknux/ofbp.git
